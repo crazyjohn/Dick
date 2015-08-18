@@ -5,13 +5,12 @@ package com.dick.net.session
 	import flash.events.SecurityErrorEvent;
 	import flash.utils.ByteArray;
 	import flash.utils.Dictionary;
-	
-	import mx.utils.StringUtil;
 
 	public class TCPService
 	{
 		private static var lossConnectHandle:Function;
 		protected static var _socket:GameSocket;
+		private var connectFunction:Function;
 		public function init(socket:GameSocket=null):void
 		{
 			if (socket == null)
@@ -40,13 +39,14 @@ package com.dick.net.session
 			lossConnectHandle = lossContnect;
 		}
 
-		public function connect(host:String, port:int):void
+		public function connect(host:String, port:int, onConnect:Function):void
 		{
 			if (!_socket)
 			{
 				init()
 			}
-			_socket.connect(host, port)
+			_socket.connect(host, port);
+			this.connectFunction = onConnect;
 		}
 
 		public function get connected():Boolean
@@ -101,7 +101,9 @@ package com.dick.net.session
 
 		protected function onConnect(e:Event):void
 		{
-			/*没有实现*/
+			if (connectFunction != null) {
+				connectFunction();
+			}
 		}
 
 		protected function onDisConnect(e:Event):void

@@ -35,14 +35,11 @@
         </excludedEntries>
       </libraryPathEntry>
       <libraryPathEntry kind="3" linkType="1" path="/staring/bin/staring.swc" useDefaultLinkType="false"/>
+      <libraryPathEntry kind="1" linkType="1" path="lib"/>
     </libraryPath>
     <sourceAttachmentPath/>
   </compiler>
-  <applications>
-    <application path="Game.as">
-      <airExcludes/>
-    </application>
-  </applications>
+  <applications/>
   <modules/>
   <workers/>
   <buildCSSFiles/>

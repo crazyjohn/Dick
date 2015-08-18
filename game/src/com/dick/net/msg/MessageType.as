@@ -1,4 +1,4 @@
-package  {
+package com.dick.net.msg  {
 	public final class MessageType {
 		public static const CG_PLAYER_LOGIN:int = 1001;
 		public static const GC_PLAYER_LOGIN_RESULT:int = 1002;

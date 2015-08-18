@@ -4,12 +4,10 @@ package
 	import flash.display.StageAlign;
 	import flash.display.StageScaleMode;
 	
-	public class game extends Sprite
+	public class Game extends Sprite
 	{
-		public function game()
+		public function Game()
 		{
-			super();
-			
 			// 支持 autoOrient
 			stage.align = StageAlign.TOP_LEFT;
 			stage.scaleMode = StageScaleMode.NO_SCALE;

@@ -1,15 +1,25 @@
 package com.dick.net.msg.response
 {
+	import com.dick.framework.handler.IMessageHandler;
+	import com.dick.game.handler.LoginMessageHandler;
 	import com.dick.game.msg.EnterScene;
 	import com.dick.game.msg.LoginResult;
 	import com.dick.game.msg.RoleList;
-	import com.dick.framework.handler.IMessageHandler;
-	import com.dick.game.handler.LoginMessageHandler;
+	import com.dick.game.msg.Sync;
 	
 	import flash.utils.IDataInput;
 
 	public class GCLoginMessageResonse implements IMessageHandler
 	{
+		
+		public function GC_SYNC(data:IDataInput):void {
+			var sync:Sync = new Sync();
+			sync.mergeFrom(data);
+			// handle
+			LoginMessageHandler.GC_SYNC(sync);
+		}
+		
+		
 		public function GC_ENTER_SCENE(data:IDataInput):void {
 			var enterScene:EnterScene = new EnterScene();
 			enterScene.mergeFrom(data);

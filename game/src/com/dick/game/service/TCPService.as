@@ -137,7 +137,7 @@ package com.dick.game.service
 			_socket.register(MessageType.GC_PLAYER_LOGIN_RESULT, response.GC_PLAYER_LOGIN_RESULT);
 			_socket.register(MessageType.GC_GET_ROLE_LIST, response.GC_GET_ROLE_LIST);
 			_socket.register(MessageType.GC_ENTER_SCENE, response.GC_ENTER_SCENE);
-			
+			_socket.register(MessageType.GC_SYNC, response.GC_SYNC);
 			
 			
 		}

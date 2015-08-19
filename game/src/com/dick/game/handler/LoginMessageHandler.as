@@ -9,6 +9,7 @@ package com.dick.game.handler
 	import com.dick.game.msg.MessageType;
 	import com.dick.game.msg.Role;
 	import com.dick.game.msg.SelectRole;
+	import com.dick.game.msg.Sync;
 	import com.dick.game.service.TCPService;
 	
 	import flash.utils.ByteArray;
@@ -58,6 +59,11 @@ package com.dick.game.handler
 			log.debug("Enter scene ready: " + human.name);
 			TCPService.sendCommand(MessageType.CG_ENTER_SCENE_READY);
 			EventBus.fireEvent(GameEvent.CG_ENTER_SCENE_READY, [human]);
+		}
+		
+		public static function GC_SYNC(sync:Sync):void
+		{
+			EventBus.fireEvent(GameEvent.GC_SYNC, [sync]);
 		}
 	}
 }

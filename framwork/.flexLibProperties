@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <flexLibProperties includeAllClasses="true" useMultiPlatformConfig="false" version="3">
   <includeClasses>
-    <classEntry path="com.dick.event.IEventListener"/>
-    <classEntry path="com.dick.event.EventBus"/>
+    <classEntry path="com.dick.framework.event.IEventListener"/>
+    <classEntry path="com.dick.framework.event.EventBus"/>
+    <classEntry path="com.dick.framework.log.Logger"/>
+    <classEntry path="com.dick.framework.log.ILoggerClip"/>
+    <classEntry path="com.dick.framework.handler.IMessageHandler"/>
+    <classEntry path="com.dick.framework.net.AbstractMessageReceiver"/>
+    <classEntry path="com.dick.framework.net.GameSocket"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

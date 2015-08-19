@@ -1,9 +1,9 @@
 package
 {
-	import com.dick.net.msg.Login;
-	import com.dick.net.msg.MessageType;
+	import com.dick.game.msg.Login;
+	import com.dick.game.msg.MessageType;
 	import com.dick.net.msg.response.GCLoginMessageResonse;
-	import com.dick.net.session.TCPService;
+	import com.dick.game.service.TCPService;
 	
 	import flash.display.Sprite;
 	import flash.display.StageAlign;

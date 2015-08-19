@@ -1,4 +1,4 @@
-package com.dick.net.msg  {
+package com.dick.game.msg  {
 	public final class SceneObjectType {
 		public static const MONSTER:int = 1;
 		public static const HUMAN:int = 2;

@@ -1,4 +1,4 @@
-package com.dick.net.msg.handler
+package com.dick.framework.handler
 {
 	public interface IMessageHandler
 	{

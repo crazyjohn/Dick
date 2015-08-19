@@ -1,4 +1,4 @@
-package com.dick.log
+package com.dick.framework.log
 {
 	public interface ILoggerClip
 	{

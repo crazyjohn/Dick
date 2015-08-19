@@ -1,6 +1,6 @@
-package com.dick.net.session
+package com.dick.framework.net
 {
-	import com.dick.log.Logger;
+	import com.dick.framework.log.Logger;
 	
 	import flash.events.Event;
 	import flash.events.IOErrorEvent;

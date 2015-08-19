@@ -1,4 +1,4 @@
-package com.dick.net.msg  {
+package com.dick.game.msg  {
 	import com.netease.protobuf.*;
 	use namespace com.netease.protobuf.used_by_generated_code;
 	import com.netease.protobuf.fieldDescriptors.*;

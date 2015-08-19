@@ -1,4 +1,4 @@
-package com.dick.net.msg  {
+package com.dick.game.msg  {
 	import com.netease.protobuf.*;
 	use namespace com.netease.protobuf.used_by_generated_code;
 	import com.netease.protobuf.fieldDescriptors.*;
@@ -7,7 +7,7 @@ package com.dick.net.msg  {
 	import flash.utils.IDataOutput;
 	import flash.utils.IExternalizable;
 	import flash.errors.IOError;
-	import com.dick.net.msg.Human;
+	import com.dick.game.msg.Human;
 	// @@protoc_insertion_point(imports)
 
 	// @@protoc_insertion_point(class_metadata)

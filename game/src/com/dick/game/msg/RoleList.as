@@ -1,4 +1,4 @@
-package com.dick.net.msg  {
+package com.dick.game.msg  {
 	import com.netease.protobuf.*;
 	use namespace com.netease.protobuf.used_by_generated_code;
 	import com.netease.protobuf.fieldDescriptors.*;
@@ -7,7 +7,7 @@ package com.dick.net.msg  {
 	import flash.utils.IDataOutput;
 	import flash.utils.IExternalizable;
 	import flash.errors.IOError;
-	import com.dick.net.msg.Role;
+	import com.dick.game.msg.Role;
 	// @@protoc_insertion_point(imports)
 
 	// @@protoc_insertion_point(class_metadata)
@@ -17,7 +17,7 @@ package com.dick.net.msg  {
 		 */
 		public static const ROLELIST:RepeatedFieldDescriptor_TYPE_MESSAGE = new RepeatedFieldDescriptor_TYPE_MESSAGE("RoleList.roleList", "roleList", (1 << 3) | com.netease.protobuf.WireType.LENGTH_DELIMITED, function():Class { return Role; });
 
-		[ArrayElementType("com.dick.net.msg.Role")]
+		[ArrayElementType("com.dick.game.msg.Role")]
 		public var roleList:Array = [];
 
 		/**

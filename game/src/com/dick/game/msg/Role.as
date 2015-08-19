@@ -1,4 +1,4 @@
-package com.dick.net.msg  {
+package com.dick.game.msg  {
 	import com.netease.protobuf.*;
 	use namespace com.netease.protobuf.used_by_generated_code;
 	import com.netease.protobuf.fieldDescriptors.*;
@@ -10,18 +10,18 @@ package com.dick.net.msg  {
 	// @@protoc_insertion_point(imports)
 
 	// @@protoc_insertion_point(class_metadata)
-	public dynamic final class CreateRole extends com.netease.protobuf.Message {
+	public dynamic final class Role extends com.netease.protobuf.Message {
 		/**
 		 *  @private
 		 */
-		public static const TEMPLATEID:FieldDescriptor_TYPE_INT32 = new FieldDescriptor_TYPE_INT32("CreateRole.templateId", "templateId", (1 << 3) | com.netease.protobuf.WireType.VARINT);
+		public static const ROLEID:FieldDescriptor_TYPE_INT64 = new FieldDescriptor_TYPE_INT64("Role.roleId", "roleId", (1 << 3) | com.netease.protobuf.WireType.VARINT);
 
-		public var templateId:int;
+		public var roleId:Int64;
 
 		/**
 		 *  @private
 		 */
-		public static const NAME:FieldDescriptor_TYPE_STRING = new FieldDescriptor_TYPE_STRING("CreateRole.name", "name", (2 << 3) | com.netease.protobuf.WireType.LENGTH_DELIMITED);
+		public static const NAME:FieldDescriptor_TYPE_STRING = new FieldDescriptor_TYPE_STRING("Role.name", "name", (2 << 3) | com.netease.protobuf.WireType.LENGTH_DELIMITED);
 
 		public var name:String;
 
@@ -30,7 +30,7 @@ package com.dick.net.msg  {
 		 */
 		override com.netease.protobuf.used_by_generated_code final function writeToBuffer(output:com.netease.protobuf.WritingBuffer):void {
 			com.netease.protobuf.WriteUtils.writeTag(output, com.netease.protobuf.WireType.VARINT, 1);
-			com.netease.protobuf.WriteUtils.write_TYPE_INT32(output, this.templateId);
+			com.netease.protobuf.WriteUtils.write_TYPE_INT64(output, this.roleId);
 			com.netease.protobuf.WriteUtils.writeTag(output, com.netease.protobuf.WireType.LENGTH_DELIMITED, 2);
 			com.netease.protobuf.WriteUtils.write_TYPE_STRING(output, this.name);
 			for (var fieldKey:* in this) {
@@ -42,21 +42,21 @@ package com.dick.net.msg  {
 		 *  @private
 		 */
 		override com.netease.protobuf.used_by_generated_code final function readFromSlice(input:flash.utils.IDataInput, bytesAfterSlice:uint):void {
-			var templateId$count:uint = 0;
+			var roleId$count:uint = 0;
 			var name$count:uint = 0;
 			while (input.bytesAvailable > bytesAfterSlice) {
 				var tag:uint = com.netease.protobuf.ReadUtils.read_TYPE_UINT32(input);
 				switch (tag >> 3) {
 				case 1:
-					if (templateId$count != 0) {
-						throw new flash.errors.IOError('Bad data format: CreateRole.templateId cannot be set twice.');
+					if (roleId$count != 0) {
+						throw new flash.errors.IOError('Bad data format: Role.roleId cannot be set twice.');
 					}
-					++templateId$count;
-					this.templateId = com.netease.protobuf.ReadUtils.read_TYPE_INT32(input);
+					++roleId$count;
+					this.roleId = com.netease.protobuf.ReadUtils.read_TYPE_INT64(input);
 					break;
 				case 2:
 					if (name$count != 0) {
-						throw new flash.errors.IOError('Bad data format: CreateRole.name cannot be set twice.');
+						throw new flash.errors.IOError('Bad data format: Role.name cannot be set twice.');
 					}
 					++name$count;
 					this.name = com.netease.protobuf.ReadUtils.read_TYPE_STRING(input);

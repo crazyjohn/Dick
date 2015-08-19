@@ -1,5 +1,5 @@
 
-package com.dick.net.session
+package com.dick.framework.net
 {
 	import flash.utils.Dictionary;
 

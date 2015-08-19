@@ -1,11 +1,13 @@
-package com.dick.net.msg.handler
+package com.dick.game.handler
 {
-	import com.dick.net.msg.CreateRole;
-	import com.dick.net.msg.Human;
-	import com.dick.net.msg.MessageType;
-	import com.dick.net.msg.Role;
-	import com.dick.net.msg.SelectRole;
-	import com.dick.net.session.TCPService;
+	import com.dick.framework.handler.IMessageHandler;
+	import com.dick.game.msg.CreateRole;
+	import com.dick.game.msg.Human;
+	import com.dick.game.msg.MessageType;
+	import com.dick.game.msg.Role;
+	import com.dick.game.msg.SelectRole;
+	import com.dick.game.service.*;
+	import com.dick.game.service.TCPService;
 	
 	import flash.utils.ByteArray;
 

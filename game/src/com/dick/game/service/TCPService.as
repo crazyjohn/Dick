@@ -1,6 +1,8 @@
-package com.dick.net.session
+package com.dick.game.service
 {
-	import com.dick.net.msg.MessageType;
+	import com.dick.framework.net.AbstractMessageReceiver;
+	import com.dick.framework.net.GameSocket;
+	import com.dick.game.msg.MessageType;
 	import com.dick.net.msg.response.GCLoginMessageResonse;
 	
 	import flash.events.Event;

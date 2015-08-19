@@ -8,6 +8,7 @@
     <classEntry path="com.dick.framework.handler.IMessageHandler"/>
     <classEntry path="com.dick.framework.net.AbstractMessageReceiver"/>
     <classEntry path="com.dick.framework.net.GameSocket"/>
+    <classEntry path="com.dick.framework.event.GameEvent"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

@@ -1,12 +1,13 @@
 package com.dick.game.handler
 {
+	import com.dick.framework.event.EventBus;
+	import com.dick.framework.event.GameEvent;
 	import com.dick.framework.handler.IMessageHandler;
 	import com.dick.game.msg.CreateRole;
 	import com.dick.game.msg.Human;
 	import com.dick.game.msg.MessageType;
 	import com.dick.game.msg.Role;
 	import com.dick.game.msg.SelectRole;
-	import com.dick.game.service.*;
 	import com.dick.game.service.TCPService;
 	
 	import flash.utils.ByteArray;
@@ -52,7 +53,7 @@ package com.dick.game.handler
 			// TODO Auto Generated method stub
 			trace("Enter scene ready: " + human.name);
 			TCPService.sendCommand(MessageType.CG_ENTER_SCENE_READY);
-			
+			EventBus.fireEvent(GameEvent.CG_ENTER_SCENE_READY, [human]);
 		}
 	}
 }

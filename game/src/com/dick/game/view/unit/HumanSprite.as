@@ -13,7 +13,7 @@ package com.dick.game.view.unit
 	public class HumanSprite extends Sprite
 	{
 		private var idleAnim:MovieClip = new MovieClip(EmbedAssets.getHumanTextureAtlas(HumanActionType.IDLE).getTextures("daiji"), 18);
-		private var useSkillAnim:MovieClip = new MovieClip(EmbedAssets.getHumanTextureAtlas(HumanActionType.USE_SKILL).getTextures("4"), 20);
+		private var useSkillAnim:MovieClip = new MovieClip(EmbedAssets.getHumanTextureAtlas(HumanActionType.USE_SKILL).getTextures("13"), 18);
 		private var nameLbl:Label = new Label();
 		private var data:Human;
 		public function HumanSprite(data:Human)

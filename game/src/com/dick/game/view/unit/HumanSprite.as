@@ -2,7 +2,12 @@ package com.dick.game.view.unit
 {
 	import com.dick.game.constants.HumanActionType;
 	import com.dick.game.msg.Human;
+	import com.dick.game.msg.MessageType;
 	import com.dick.game.resource.EmbedAssets;
+	import com.dick.game.service.TCPService;
+	
+	import flash.events.TimerEvent;
+	import flash.utils.Timer;
 	
 	import feathers.controls.Label;
 	
@@ -17,9 +22,18 @@ package com.dick.game.view.unit
 		private var useSkillAnim:MovieClip = new MovieClip(EmbedAssets.getHumanTextureAtlas(HumanActionType.USE_SKILL).getTextures("18"), 15);
 		private var nameLbl:Label = new Label();
 		private var data:Human;
+		private var timer:Timer = new Timer(1000 * 10);
 		public function HumanSprite(data:Human)
 		{
 			this.data = data;
+			// start timer
+			timer.start();
+			timer.addEventListener(TimerEvent.TIMER, onSynced);
+		}
+		
+		protected function onSynced(event:TimerEvent):void
+		{
+			TCPService.sendCommand(MessageType.CG_SYNC);
 		}
 		
 		public function idle():void {

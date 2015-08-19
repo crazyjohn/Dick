@@ -21,8 +21,7 @@ package
 		
 		private function onEnterSceneReady(params:Array):void
 		{
-			// TODO Auto Generated method stub
-			trace("Begin to load human resource");
+			// load human resource
 			var humanAnim:MovieClip = new MovieClip(EmbedAssets.getHumanTextureAtlas().getTextures("daiji"), 18);
 			Starling.juggler.add(humanAnim);
 			this.addChild(humanAnim);

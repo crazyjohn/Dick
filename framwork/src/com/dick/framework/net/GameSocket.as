@@ -17,14 +17,9 @@ package com.dick.framework.net
 	 */
 	public class GameSocket extends Socket
 	{
-		/**
-		 * 消息类型映射表 
-		 */
+		/** handlers */
 		public static var MESSAGETYPE_MAP:Dictionary;
-		
-		/**
-		 * 日志 
-		 */
+		/** log */
 		private static var log:Logger = new Logger("GameSocket");
 
 		public static function getInstance():GameSocket
@@ -59,7 +54,7 @@ package com.dick.framework.net
 		{
 			if (type in handleMap)
 			{
-				log.warn((MESSAGETYPE_MAP ? MESSAGETYPE_MAP[type] : type) + "已经在MESSAGETYPE_MAP中被注册");
+				log.warn((MESSAGETYPE_MAP ? MESSAGETYPE_MAP[type] : type) + "already registed");
 			}
 			if (handle == null)
 			{
@@ -76,7 +71,7 @@ package com.dick.framework.net
 			}
 			else
 			{
-				log.warn("找不到该类型", MESSAGETYPE_MAP ? MESSAGETYPE_MAP[type] : type);
+				log.warn("Can't find such type", MESSAGETYPE_MAP ? MESSAGETYPE_MAP[type] : type);
 			}
 		}
 
@@ -84,16 +79,16 @@ package com.dick.framework.net
 		
 		private function excuteHandle(type:*, content:*):void
 		{
-			log.debug("消息接收", type is String ? type : MESSAGETYPE_MAP ? MESSAGETYPE_MAP[type] : type,type);
+			log.debug("Message received", type is String ? type : MESSAGETYPE_MAP ? MESSAGETYPE_MAP[type] : type,type);
 			if (handleTrace != null)
-				handleTrace("消息接收,"+(type is String ? type : MESSAGETYPE_MAP ? MESSAGETYPE_MAP[type] : type)+","+type,0xEE82EE);
+				handleTrace("Message received,"+(type is String ? type : MESSAGETYPE_MAP ? MESSAGETYPE_MAP[type] : type)+","+type,0xEE82EE);
 			if (type in handleMap)
 			{
 				handleMap[type](content);
 			}
 			else
 			{
-				log.warn("找不到对映的处理函数", MESSAGETYPE_MAP ? MESSAGETYPE_MAP[type] : type);
+				log.warn("Can't find such handler", MESSAGETYPE_MAP ? MESSAGETYPE_MAP[type] : type);
 			}
 		}
 
@@ -111,9 +106,9 @@ package com.dick.framework.net
 		
 		public function sendPackage(cmd:int, body:ByteArray):void
 		{
-			log.debug("消息发送", MESSAGETYPE_MAP ? MESSAGETYPE_MAP[cmd] : cmd, cmd);
+			log.debug("Message send", MESSAGETYPE_MAP ? MESSAGETYPE_MAP[cmd] : cmd, cmd);
 			if (sendPackageTrace != null)
-				sendPackageTrace("消息发送,"+(MESSAGETYPE_MAP ? MESSAGETYPE_MAP[cmd] : cmd)+","+cmd);
+				sendPackageTrace("Message send,"+(MESSAGETYPE_MAP ? MESSAGETYPE_MAP[cmd] : cmd)+","+cmd);
 			
 			writeShort(body.length + 4);
 			writeShort(cmd);

@@ -10,6 +10,11 @@ package com.dick.net.session
 	import flash.utils.ByteArray;
 	import flash.utils.Dictionary;
 
+	/**
+	 * The GameSocket;
+	 * 
+	 * @author crazyjohn;
+	 */
 	public class GameSocket extends Socket
 	{
 		/**

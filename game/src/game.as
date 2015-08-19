@@ -2,6 +2,7 @@ package
 {
 	import com.dick.net.msg.Login;
 	import com.dick.net.msg.MessageType;
+	import com.dick.net.msg.response.GCLoginMessageResonse;
 	import com.dick.net.session.TCPService;
 	
 	import flash.display.Sprite;
@@ -20,6 +21,8 @@ package
 			// tcpService
 			var session:TCPService = new TCPService();
 			session.connect("203.195.218.172", 8081, sendLogin);
+			// register handler
+			session.registerLoginMessageHandler(new GCLoginMessageResonse());
 			function sendLogin():void {
 				// send login
 				var login:Login = new Login();

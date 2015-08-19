@@ -11,7 +11,7 @@ package com.dick.net.session
 
 		protected function collectObservers():void
 		{
-			throw new Error("collectObservers must be implemented by subclass");
+			throw new Error("CollectObservers must be implemented by subclass");
 		}
 
 		private var hasCollected:Boolean=false;

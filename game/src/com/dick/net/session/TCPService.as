@@ -1,5 +1,8 @@
 package com.dick.net.session
 {
+	import com.dick.net.msg.MessageType;
+	import com.dick.net.msg.response.GCLoginMessageResonse;
+	
 	import flash.events.Event;
 	import flash.events.IOErrorEvent;
 	import flash.events.SecurityErrorEvent;
@@ -98,6 +101,11 @@ package com.dick.net.session
 				}
 			}
 		}
+		
+		public static function sendCommand(cmd:int):void
+		{
+			sendPackage(cmd, new ByteArray());
+		}
 
 		protected function onConnect(e:Event):void
 		{
@@ -119,6 +127,17 @@ package com.dick.net.session
 		protected function lossContnect():void
 		{
 			/*没有实现*/
+		}
+		
+		public function registerLoginMessageHandler(response:GCLoginMessageResonse):void
+		{
+			// TODO Auto Generated method stub
+			_socket.register(MessageType.GC_PLAYER_LOGIN_RESULT, response.GC_PLAYER_LOGIN_RESULT);
+			_socket.register(MessageType.GC_GET_ROLE_LIST, response.GC_GET_ROLE_LIST);
+			_socket.register(MessageType.GC_ENTER_SCENE, response.GC_ENTER_SCENE);
+			
+			
+			
 		}
 	}
 }

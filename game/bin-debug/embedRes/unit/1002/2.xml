@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:b3ad4e8e1d07ad744bbae6271d9e0180:1/1$ -->
+<TextureAtlas imagePath="2.png">
+    <SubTexture name="shouji_00000" x="2" y="222" width="127" height="109" frameX="-35" frameY="-112" frameWidth="347" frameHeight="243"/>
+    <SubTexture name="shouji_00001" x="2" y="2" width="129" height="107" frameX="-33" frameY="-114" frameWidth="347" frameHeight="243"/>
+    <SubTexture name="shouji_00002" x="133" y="2" width="119" height="107" frameX="-43" frameY="-114" frameWidth="347" frameHeight="243"/>
+    <SubTexture name="shouji_00003" x="131" y="111" width="117" height="109" frameX="-45" frameY="-112" frameWidth="347" frameHeight="243"/>
+    <SubTexture name="shouji_00004" x="2" y="111" width="127" height="109" frameX="-35" frameY="-112" frameWidth="347" frameHeight="243"/>
+</TextureAtlas>

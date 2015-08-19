@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:664ced62a29f7a0117559e1ec832c9e5:1/1$ -->
+<TextureAtlas imagePath="1.png">
+    <SubTexture name="daiji_00000" x="135" y="2" width="131" height="111" frameX="-31" frameY="-110" frameWidth="347" frameHeight="243"/>
+    <SubTexture name="daiji_00001" x="268" y="113" width="127" height="111" frameX="-35" frameY="-110" frameWidth="347" frameHeight="243"/>
+    <SubTexture name="daiji_00002" x="2" y="224" width="121" height="111" frameX="-41" frameY="-110" frameWidth="347" frameHeight="243"/>
+    <SubTexture name="daiji_00003" x="2" y="337" width="115" height="111" frameX="-47" frameY="-111" frameWidth="347" frameHeight="243"/>
+    <SubTexture name="daiji_00004" x="397" y="113" width="113" height="109" frameX="-49" frameY="-113" frameWidth="347" frameHeight="243"/>
+    <SubTexture name="daiji_00005" x="359" y="226" width="115" height="105" frameX="-49" frameY="-116" frameWidth="347" frameHeight="243"/>
+    <SubTexture name="daiji_00006" x="240" y="329" width="117" height="105" frameX="-48" frameY="-116" frameWidth="347" frameHeight="243"/>
+    <SubTexture name="daiji_00007" x="119" y="337" width="119" height="105" frameX="-47" frameY="-116" frameWidth="347" frameHeight="243"/>
+    <SubTexture name="daiji_00008" x="131" y="222" width="123" height="105" frameX="-42" frameY="-116" frameWidth="347" frameHeight="243"/>
+    <SubTexture name="daiji_00009" x="131" y="115" width="125" height="105" frameX="-39" frameY="-116" frameWidth="347" frameHeight="243"/>
+    <SubTexture name="daiji_00010" x="2" y="115" width="127" height="107" frameX="-35" frameY="-114" frameWidth="347" frameHeight="243"/>
+    <SubTexture name="daiji_00011" x="268" y="2" width="129" height="109" frameX="-33" frameY="-112" frameWidth="347" frameHeight="243"/>
+    <SubTexture name="daiji_00012" x="2" y="2" width="131" height="111" frameX="-31" frameY="-110" frameWidth="347" frameHeight="243"/>
+</TextureAtlas>

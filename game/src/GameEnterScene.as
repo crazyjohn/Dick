@@ -8,6 +8,12 @@ package
 	{
 		public function GameEnterScene()
 		{
+			// bg
+			initBg();
+		}
+		
+		private function initBg():void
+		{
 			var bgImg:Image = new Image(EmbedAssets.getTexture("Map"));
 			this.addChild(bgImg);
 		}

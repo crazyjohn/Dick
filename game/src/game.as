@@ -9,7 +9,6 @@ package
 	import flash.display.StageAlign;
 	import flash.display.StageScaleMode;
 	import flash.geom.Rectangle;
-	import flash.system.Capabilities;
 	import flash.utils.ByteArray;
 	
 	import starling.core.Starling;
@@ -22,7 +21,7 @@ package
 		{
 			// init starling
 			initStarling();
-			// 支持 autoOrient
+			// suport autoOrient
 			stage.align = StageAlign.TOP_LEFT;
 			stage.scaleMode = StageScaleMode.NO_SCALE;
 			// tcpService

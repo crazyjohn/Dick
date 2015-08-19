@@ -9,11 +9,12 @@ package com.dick.game.view.unit
 	import starling.core.Starling;
 	import starling.display.MovieClip;
 	import starling.display.Sprite;
+	import starling.events.Event;
 	
 	public class HumanSprite extends Sprite
 	{
 		private var idleAnim:MovieClip = new MovieClip(EmbedAssets.getHumanTextureAtlas(HumanActionType.IDLE).getTextures("daiji"), 18);
-		private var useSkillAnim:MovieClip = new MovieClip(EmbedAssets.getHumanTextureAtlas(HumanActionType.USE_SKILL).getTextures("13"), 18);
+		private var useSkillAnim:MovieClip = new MovieClip(EmbedAssets.getHumanTextureAtlas(HumanActionType.USE_SKILL).getTextures("18"), 15);
 		private var nameLbl:Label = new Label();
 		private var data:Human;
 		public function HumanSprite(data:Human)
@@ -24,6 +25,9 @@ package com.dick.game.view.unit
 		public function idle():void {
 			// nameLbl
 			nameLbl.text = data.name;
+			// remove use skill
+			Starling.juggler.remove(this.useSkillAnim);
+			this.removeChild(this.useSkillAnim);
 			// load human resource
 			Starling.juggler.add(idleAnim);
 			idleAnim.x = (stage.width - idleAnim.width) / 2;
@@ -44,6 +48,16 @@ package com.dick.game.view.unit
 			useSkillAnim.x = (stage.width - useSkillAnim.width) / 2;
 			useSkillAnim.y = (stage.height - useSkillAnim.height) / 2;
 			this.addChild(useSkillAnim);
+			useSkillAnim.addEventListener(Event.COMPLETE, onSkilCompleted);
+		}
+		
+		private function onSkilCompleted(event:Event):void
+		{
+			// TODO Auto Generated method stub
+			trace("Skill completed");
+			if (event.target == this.useSkillAnim) {
+				idle();
+			}
 		}
 	}
 }

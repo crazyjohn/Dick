@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:b9a407afbb56b105ef63e40cf0e1ecd2:1/1$ -->
+<TextureAtlas imagePath="18.png">
+    <SubTexture name="18_00000" x="2" y="549" width="179" height="155" frameX="-16" frameY="-88" frameWidth="347" frameHeight="243"/>
+    <SubTexture name="18_00001" x="223" y="547" width="179" height="177" frameX="-16" frameY="-66" frameWidth="347" frameHeight="243"/>
+    <SubTexture name="18_00002" x="825" y="2" width="183" height="195" frameX="-15" frameY="-48" frameWidth="347" frameHeight="243"/>
+    <SubTexture name="18_00003" x="223" y="338" width="219" height="207" frameX="0" frameY="-36" frameWidth="347" frameHeight="243"/>
+    <SubTexture name="18_00004" x="2" y="336" width="219" height="211" frameX="0" frameY="-32" frameWidth="347" frameHeight="243"/>
+    <SubTexture name="18_00005" x="500" y="159" width="219" height="209" frameX="0" frameY="-34" frameWidth="347" frameHeight="243"/>
+    <SubTexture name="18_00006" x="444" y="370" width="217" height="209" frameX="0" frameY="-34" frameWidth="347" frameHeight="243"/>
+    <SubTexture name="18_00007" x="721" y="199" width="217" height="209" frameX="0" frameY="-34" frameWidth="347" frameHeight="243"/>
+    <SubTexture name="18_00008" x="257" y="159" width="241" height="177" frameX="0" frameY="-66" frameWidth="347" frameHeight="243"/>
+    <SubTexture name="18_00009" x="2" y="159" width="253" height="175" frameX="0" frameY="-68" frameWidth="347" frameHeight="243"/>
+    <SubTexture name="18_00010" x="2" y="2" width="275" height="155" frameX="0" frameY="-88" frameWidth="347" frameHeight="243"/>
+    <SubTexture name="18_00011" x="552" y="2" width="271" height="155" frameX="0" frameY="-88" frameWidth="347" frameHeight="243"/>
+    <SubTexture name="18_00012" x="279" y="2" width="271" height="155" frameX="0" frameY="-88" frameWidth="347" frameHeight="243"/>
+</TextureAtlas>

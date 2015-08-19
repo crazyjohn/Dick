@@ -19,9 +19,9 @@ package com.dick.game.resource
 		[Embed(source="/embedRes/unit/1.xml", mimeType="application/octet-stream")]
 		public static const HumanIdleXml:Class;
 		// human use skill
-		[Embed(source="/embedRes/unit/13.png")]
+		[Embed(source="/embedRes/unit/18.png")]
 		public static const HumanSkillImg:Class;
-		[Embed(source="/embedRes/unit/13.xml", mimeType="application/octet-stream")]
+		[Embed(source="/embedRes/unit/18.xml", mimeType="application/octet-stream")]
 		public static const HumanSkillXml:Class;
 		
 		private static var gameTextures:Dictionary = new Dictionary();

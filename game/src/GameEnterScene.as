@@ -2,6 +2,7 @@ package
 {
 	import com.dick.framework.event.EventBus;
 	import com.dick.framework.event.GameEvent;
+	import com.dick.game.data.ScenePlayerManager;
 	import com.dick.game.msg.Human;
 	import com.dick.game.msg.Sync;
 	import com.dick.game.resource.EmbedAssets;
@@ -19,14 +20,30 @@ package
 	 */
 	public class GameEnterScene extends Sprite
 	{
-		private var humanView:HumanSprite;
+		private var characterView:HumanSprite;
+		
 		public function GameEnterScene()
 		{
 			// bg
 			initBg();
 			// addEventListener
-			EventBus.addEventListener(GameEvent.CG_ENTER_SCENE_READY, onEnterSceneReady);
+			EventBus.addEventListener(GameEvent.GC_ENTER_SCENE_READY, onEnterSceneReady);
 			EventBus.addEventListener(GameEvent.GC_SYNC, onSync);
+			EventBus.addEventListener(GameEvent.GC_APPEAR_NEW_HUMAN, onNewHumanAppear);
+			
+		}
+		
+		private function onNewHumanAppear(params:Array):void
+		{
+			var human:Human = params[0];
+			var humanView:HumanSprite = new HumanSprite(human);
+			this.addChild(humanView);
+			humanView.idle();
+			var x:int = Math.random() * 300 + this.characterView.x;
+			var y:int = Math.random() * 300 + this.characterView.y;
+			trace("New human appear: " + human.name + ", x: " + x + ", y: " + y);
+			humanView.x = x;
+			humanView.y = y;
 		}
 		
 		private function onSync(params:Array):void
@@ -34,23 +51,24 @@ package
 			// TODO Auto Generated method stub
 			var sync:Sync = params[0];
 			trace("Sync size: " + sync.humans.length);
+			ScenePlayerManager.addAll(sync.humans);
 		}
 		
 		private function onEnterSceneReady(params:Array):void
 		{
 			var human:Human = params[0];
-			humanView = new HumanSprite(human);
-			this.addChild(humanView);
-			humanView.idle();
+			characterView = new HumanSprite(human);
+			this.addChild(characterView);
+			characterView.idle();
 			// add event listener
-			humanView.addEventListener(TouchEvent.TOUCH, onTouched);
+			characterView.addEventListener(TouchEvent.TOUCH, onTouched);
 		}
 		
 		private function onTouched(event:TouchEvent):void
 		{
 			// 鼠标释放
 			if (event.getTouch(this, TouchPhase.ENDED)) {
-				humanView.useSkill();
+				characterView.useSkill();
 			}
 			
 		}

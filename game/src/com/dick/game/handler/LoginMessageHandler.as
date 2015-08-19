@@ -58,7 +58,7 @@ package com.dick.game.handler
 			// enter scene
 			log.debug("Enter scene ready: " + human.name);
 			TCPService.sendCommand(MessageType.CG_ENTER_SCENE_READY);
-			EventBus.fireEvent(GameEvent.CG_ENTER_SCENE_READY, [human]);
+			EventBus.fireEvent(GameEvent.GC_ENTER_SCENE_READY, [human]);
 		}
 		
 		public static function GC_SYNC(sync:Sync):void

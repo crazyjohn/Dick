@@ -8,6 +8,8 @@ package
 	
 	import starling.display.Image;
 	import starling.display.Sprite;
+	import starling.events.TouchEvent;
+	import starling.events.TouchPhase;
 	
 	/**
 	 * The first scene;
@@ -16,6 +18,7 @@ package
 	 */
 	public class GameEnterScene extends Sprite
 	{
+		private var humanView:HumanSprite;
 		public function GameEnterScene()
 		{
 			// bg
@@ -27,9 +30,20 @@ package
 		private function onEnterSceneReady(params:Array):void
 		{
 			var human:Human = params[0];
-			var humanView:HumanSprite = new HumanSprite(human);
+			humanView = new HumanSprite(human);
 			this.addChild(humanView);
-			humanView.loadResource();
+			humanView.idle();
+			// add event listener
+			humanView.addEventListener(TouchEvent.TOUCH, onTouched);
+		}
+		
+		private function onTouched(event:TouchEvent):void
+		{
+			// 鼠标释放
+			if (event.getTouch(this, TouchPhase.ENDED)) {
+				humanView.useSkill();
+			}
+			
 		}
 		
 		private function initBg():void

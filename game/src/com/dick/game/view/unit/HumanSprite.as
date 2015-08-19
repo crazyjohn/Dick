@@ -1,5 +1,6 @@
 package com.dick.game.view.unit
 {
+	import com.dick.game.constants.HumanActionType;
 	import com.dick.game.msg.Human;
 	import com.dick.game.resource.EmbedAssets;
 	
@@ -11,25 +12,38 @@ package com.dick.game.view.unit
 	
 	public class HumanSprite extends Sprite
 	{
+		private var idleAnim:MovieClip = new MovieClip(EmbedAssets.getHumanTextureAtlas(HumanActionType.IDLE).getTextures("daiji"), 18);
+		private var useSkillAnim:MovieClip = new MovieClip(EmbedAssets.getHumanTextureAtlas(HumanActionType.USE_SKILL).getTextures("4"), 20);
+		private var nameLbl:Label = new Label();
 		private var data:Human;
 		public function HumanSprite(data:Human)
 		{
 			this.data = data;
 		}
 		
-		public function loadResource():void {
+		public function idle():void {
 			// nameLbl
-			var nameLbl:Label = new Label();
 			nameLbl.text = data.name;
 			// load human resource
-			var humanAnim:MovieClip = new MovieClip(EmbedAssets.getHumanTextureAtlas().getTextures("daiji"), 18);
-			Starling.juggler.add(humanAnim);
-			humanAnim.x = (stage.width - humanAnim.width) / 2;
-			humanAnim.y = (stage.height - humanAnim.height) / 2;
-			this.addChild(humanAnim);
-			nameLbl.x = humanAnim.x + 80;
-			nameLbl.y = humanAnim.y + 80;
+			Starling.juggler.add(idleAnim);
+			idleAnim.x = (stage.width - idleAnim.width) / 2;
+			idleAnim.y = (stage.height - idleAnim.height) / 2;
+			this.addChild(idleAnim);
+			nameLbl.x = idleAnim.x + 80;
+			nameLbl.y = idleAnim.y + 80;
 			this.addChild(nameLbl);
+		}
+		
+		public function useSkill():void {
+			// remove idle
+			Starling.juggler.remove(this.idleAnim);
+			this.removeChild(this.idleAnim);
+			this.removeChild(this.nameLbl);
+			// add use skill
+			Starling.juggler.add(useSkillAnim);
+			useSkillAnim.x = (stage.width - useSkillAnim.width) / 2;
+			useSkillAnim.y = (stage.height - useSkillAnim.height) / 2;
+			this.addChild(useSkillAnim);
 		}
 	}
 }

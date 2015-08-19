@@ -1,5 +1,7 @@
 package com.dick.game.resource
 {
+	import com.dick.game.constants.HumanActionType;
+	
 	import flash.display.Bitmap;
 	import flash.utils.Dictionary;
 	
@@ -16,6 +18,11 @@ package com.dick.game.resource
 		public static const HumanIdleImg:Class;
 		[Embed(source="/embedRes/unit/1.xml", mimeType="application/octet-stream")]
 		public static const HumanIdleXml:Class;
+		// human use skill
+		[Embed(source="/embedRes/unit/4.png")]
+		public static const HumanSkillImg:Class;
+		[Embed(source="/embedRes/unit/4.xml", mimeType="application/octet-stream")]
+		public static const HumanSkillXml:Class;
 		
 		private static var gameTextures:Dictionary = new Dictionary();
 		
@@ -28,10 +35,17 @@ package com.dick.game.resource
 			return gameTextures[name];
 		}
 		
-		public static function getHumanTextureAtlas():TextureAtlas {
-			var xml:XML = XML(new HumanIdleXml());
-			var humanAtlas:TextureAtlas = new TextureAtlas(getTexture("HumanIdleImg"), xml);
-			return humanAtlas;
+		public static function getHumanTextureAtlas(type:int):TextureAtlas {
+			var result:TextureAtlas;
+			if (type == HumanActionType.IDLE) {
+				var xml:XML = XML(new HumanIdleXml());
+				result = new TextureAtlas(getTexture("HumanIdleImg"), xml);
+			} else if (type == HumanActionType.USE_SKILL) {
+				xml = XML(new HumanSkillXml());
+				result = new TextureAtlas(getTexture("HumanSkillImg"), xml);
+			}
+			
+			return result;
 		}
 	}
 }

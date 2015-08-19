@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:2490560e6d8169275295a0224bdca192:1/1$ -->
+<TextureAtlas imagePath="1.png">
+    <SubTexture name="daiji_00000" x="153" y="188" width="147" height="91" frameX="-55" frameY="-129" frameWidth="347" frameHeight="243"/>
+    <SubTexture name="daiji_00001" x="151" y="281" width="147" height="91" frameX="-55" frameY="-129" frameWidth="347" frameHeight="243"/>
+    <SubTexture name="daiji_00002" x="2" y="188" width="149" height="91" frameX="-54" frameY="-129" frameWidth="347" frameHeight="243"/>
+    <SubTexture name="daiji_00003" x="155" y="95" width="151" height="91" frameX="-52" frameY="-129" frameWidth="347" frameHeight="243"/>
+    <SubTexture name="daiji_00004" x="314" y="2" width="153" height="91" frameX="-50" frameY="-129" frameWidth="347" frameHeight="243"/>
+    <SubTexture name="daiji_00005" x="2" y="2" width="155" height="91" frameX="-49" frameY="-129" frameWidth="347" frameHeight="243"/>
+    <SubTexture name="daiji_00006" x="159" y="2" width="153" height="91" frameX="-50" frameY="-129" frameWidth="347" frameHeight="243"/>
+    <SubTexture name="daiji_00007" x="2" y="95" width="151" height="91" frameX="-52" frameY="-129" frameWidth="347" frameHeight="243"/>
+    <SubTexture name="daiji_00008" x="308" y="95" width="149" height="91" frameX="-53" frameY="-129" frameWidth="347" frameHeight="243"/>
+    <SubTexture name="daiji_00009" x="2" y="374" width="147" height="91" frameX="-55" frameY="-129" frameWidth="347" frameHeight="243"/>
+    <SubTexture name="daiji_00010" x="2" y="281" width="147" height="91" frameX="-55" frameY="-129" frameWidth="347" frameHeight="243"/>
+</TextureAtlas>

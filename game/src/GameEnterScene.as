@@ -2,13 +2,18 @@ package
 {
 	import com.dick.framework.event.EventBus;
 	import com.dick.framework.event.GameEvent;
+	import com.dick.game.msg.Human;
 	import com.dick.game.resource.EmbedAssets;
+	import com.dick.game.view.unit.HumanSprite;
 	
-	import starling.core.Starling;
 	import starling.display.Image;
-	import starling.display.MovieClip;
 	import starling.display.Sprite;
 	
+	/**
+	 * The first scene;
+	 * 
+	 * @author crazyjohn;
+	 */
 	public class GameEnterScene extends Sprite
 	{
 		public function GameEnterScene()
@@ -21,10 +26,10 @@ package
 		
 		private function onEnterSceneReady(params:Array):void
 		{
-			// load human resource
-			var humanAnim:MovieClip = new MovieClip(EmbedAssets.getHumanTextureAtlas().getTextures("daiji"), 18);
-			Starling.juggler.add(humanAnim);
-			this.addChild(humanAnim);
+			var human:Human = params[0];
+			var humanView:HumanSprite = new HumanSprite(human);
+			this.addChild(humanView);
+			humanView.loadResource();
 		}
 		
 		private function initBg():void

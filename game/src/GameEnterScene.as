@@ -2,12 +2,12 @@ package
 {
 	import com.dick.framework.event.EventBus;
 	import com.dick.framework.event.GameEvent;
-	import com.dick.game.data.ScenePlayerManager;
+	import com.dick.game.data.GameHumanManager;
 	import com.dick.game.msg.Human;
 	import com.dick.game.msg.Sync;
 	import com.dick.game.resource.EmbedAssets;
 	import com.dick.game.view.unit.HumanSprite;
-	
+	import com.dick.game.view.unit.MonsterSprite;
 	import starling.display.Image;
 	import starling.display.Sprite;
 	import starling.events.TouchEvent;
@@ -36,7 +36,7 @@ package
 		private function onNewHumanAppear(params:Array):void
 		{
 			var human:Human = params[0];
-			var humanView:HumanSprite = new HumanSprite(human);
+			var humanView:MonsterSprite = new MonsterSprite(human);
 			this.addChild(humanView);
 			humanView.idle();
 			var x:int = Math.random() * 300 + this.characterView.x;
@@ -51,7 +51,7 @@ package
 			// TODO Auto Generated method stub
 			var sync:Sync = params[0];
 			trace("Sync size: " + sync.humans.length);
-			ScenePlayerManager.addAll(sync.humans);
+			GameHumanManager.addAll(sync.humans);
 		}
 		
 		private function onEnterSceneReady(params:Array):void

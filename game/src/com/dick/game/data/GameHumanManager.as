@@ -7,7 +7,7 @@ package com.dick.game.data
 	
 	import flash.utils.Dictionary;
 
-	public class ScenePlayerManager
+	public class GameHumanManager
 	{
 		private static var humans:Dictionary = new Dictionary();
 		

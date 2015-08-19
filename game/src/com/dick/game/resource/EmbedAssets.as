@@ -23,6 +23,11 @@ package com.dick.game.resource
 		public static const HumanSkillImg:Class;
 		[Embed(source="/embedRes/unit/18.xml", mimeType="application/octet-stream")]
 		public static const HumanSkillXml:Class;
+		// monster
+		[Embed(source="/embedRes/unit/monster_1.png")]
+		public static const MonsterImg:Class;
+		[Embed(source="/embedRes/unit/monster_1.xml", mimeType="application/octet-stream")]
+		public static const MonsterXml:Class;
 		
 		private static var gameTextures:Dictionary = new Dictionary();
 		
@@ -45,6 +50,13 @@ package com.dick.game.resource
 				result = new TextureAtlas(getTexture("HumanSkillImg"), xml);
 			}
 			
+			return result;
+		}
+		
+		public static function getMonsterTextureAtlas():TextureAtlas {
+			var result:TextureAtlas;
+			var xml:XML = XML(new MonsterXml());
+			result = new TextureAtlas(getTexture("MonsterImg"), xml);
 			return result;
 		}
 	}

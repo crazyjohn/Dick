@@ -75,10 +75,10 @@ package com.dick.game.view.unit
 		public function moveTo(toX:int, toY:int):void
 		{
 //			if (this.x < toX && !this.faceToFront) {
-//				this.idleAnim.rotation = -180;
+//				this.idleAnim.scaleX = 1;
 //				this.faceToFront = true;
 //			} else if (this.x > toX && this.faceToFront) {
-//				this.idleAnim.rotation = 90;
+//				this.idleAnim.scaleX = -1;
 //				this.faceToFront = false;
 //			}
 			var xCostTime:int = Math.abs(this.x - toX) / speed;

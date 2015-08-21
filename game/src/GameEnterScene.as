@@ -46,7 +46,7 @@ package
 			var humanView:MonsterSprite = new MonsterSprite(human);
 			this.addChild(humanView);
 			humanView.idle();
-			var x:int = Math.random() * 300 + this.characterView.x;
+			var x:int = Math.random() * 800 + this.characterView.x;
 			var y:int = Math.random() * 300 + this.characterView.y;
 			humanView.x = x;
 			humanView.y = y;

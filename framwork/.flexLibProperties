@@ -9,6 +9,7 @@
     <classEntry path="com.dick.framework.net.AbstractMessageReceiver"/>
     <classEntry path="com.dick.framework.net.GameSocket"/>
     <classEntry path="com.dick.framework.event.GameEvent"/>
+    <classEntry path="com.dick.framework.response.IMessageResponse"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

@@ -23,7 +23,7 @@ package com.dick.game.view.unit
 		private var useSkillAnim:MovieClip = new MovieClip(EmbedAssets.getHumanTextureAtlas(HumanActionType.USE_SKILL).getTextures("18"), 15);
 		private var nameLbl:Label = new Label();
 		private var data:Human;
-		private var timer:Timer = new Timer(1000 * 10);
+		private var timer:Timer = new Timer(1000 * 5);
 		public function HumanSprite(data:Human)
 		{
 			this.data = data;
@@ -45,8 +45,6 @@ package com.dick.game.view.unit
 			this.removeChild(this.useSkillAnim);
 			// load human resource
 			Starling.juggler.add(idleAnim);
-			idleAnim.x = (stage.width - idleAnim.width) / 2;
-			idleAnim.y = (stage.height - idleAnim.height) / 2;
 			this.addChild(idleAnim);
 			nameLbl.x = idleAnim.x + 80;
 			nameLbl.y = idleAnim.y + 80;
@@ -60,8 +58,6 @@ package com.dick.game.view.unit
 			this.removeChild(this.nameLbl);
 			// add use skill
 			Starling.juggler.add(useSkillAnim);
-			useSkillAnim.x = (stage.width - useSkillAnim.width) / 2;
-			useSkillAnim.y = (stage.height - useSkillAnim.height) / 2;
 			this.addChild(useSkillAnim);
 			useSkillAnim.addEventListener(Event.COMPLETE, onSkilCompleted);
 		}
@@ -74,13 +70,25 @@ package com.dick.game.view.unit
 				idle();
 			}
 		}
-		
-		public function move():void
+		private var speed:int = 100;
+		private var faceToFront:Boolean = true;
+		public function moveTo(toX:int, toY:int):void
 		{
-			Starling.juggler.tween(this, 2.0, {
-				transition: Transitions.EASE_IN_OUT,
-				delay: 20, // -> tween.delay = 20
-				x: 50 // -> tween.animate("x", 50)
+//			if (this.x < toX && !this.faceToFront) {
+//				this.idleAnim.rotation = -180;
+//				this.faceToFront = true;
+//			} else if (this.x > toX && this.faceToFront) {
+//				this.idleAnim.rotation = 90;
+//				this.faceToFront = false;
+//			}
+			var xCostTime:int = Math.abs(this.x - toX) / speed;
+			var yCostTime:int = Math.abs(this.y - toY) / speed;
+			var costTime:int = Math.max(xCostTime, yCostTime);
+			Starling.juggler.tween(this, costTime, {
+				transition: Transitions.EASE_OUT,
+				delay: 0.1, // -> tween.delay = 20
+				x: toX, // -> tween.animate("x", 50)
+				y: toY
 			})
 			
 		}

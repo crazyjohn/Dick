@@ -1,12 +1,10 @@
 package com.dick.game.view.unit
 {
-	import com.dick.game.constants.HumanActionType;
 	import com.dick.game.msg.Human;
 	import com.dick.game.resource.EmbedAssets;
 	
 	import feathers.controls.Label;
 	
-	import starling.animation.Transitions;
 	import starling.core.Starling;
 	import starling.display.MovieClip;
 	import starling.display.Sprite;
@@ -36,14 +34,5 @@ package com.dick.game.view.unit
 		}
 		
 		
-		public function move():void
-		{
-			Starling.juggler.tween(this, 2.0, {
-				transition: Transitions.EASE_IN_OUT,
-				delay: 20, // -> tween.delay = 20
-				x: 50 // -> tween.animate("x", 50)
-			})
-			
-		}
 	}
 }

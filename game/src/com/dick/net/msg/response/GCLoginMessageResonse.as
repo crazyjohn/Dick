@@ -1,6 +1,6 @@
 package com.dick.net.msg.response
 {
-	import com.dick.framework.handler.IMessageHandler;
+	import com.dick.framework.response.IMessageResponse;
 	import com.dick.game.handler.LoginMessageHandler;
 	import com.dick.game.msg.EnterScene;
 	import com.dick.game.msg.LoginResult;
@@ -9,7 +9,7 @@ package com.dick.net.msg.response
 	
 	import flash.utils.IDataInput;
 
-	public class GCLoginMessageResonse implements IMessageHandler
+	public class GCLoginMessageResonse implements IMessageResponse
 	{
 		
 		public function GC_SYNC(data:IDataInput):void {

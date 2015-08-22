@@ -1,4 +1,4 @@
-package com.dick.game.service
+package com.dick.game.net.session
 {
 	import com.dick.framework.net.AbstractMessageReceiver;
 	import com.dick.framework.net.GameSocket;
@@ -11,7 +11,12 @@ package com.dick.game.service
 	import flash.utils.ByteArray;
 	import flash.utils.Dictionary;
 
-	public class TCPService
+	/**
+	 * The io session between client and server;
+	 * 
+	 * @author crazyjohn;
+	 */
+	public class IoSession
 	{
 		private static var lossConnectHandle:Function;
 		protected static var _socket:GameSocket;

@@ -88,12 +88,6 @@ package
 			if (touch != null) {
 				trace("Toched: x = " + touch.globalX + ", y = " + touch.globalY);
 				trace("Player: x = " + characterView.x + ", y = " + characterView.y);
-//				Starling.juggler.tween(this.characterView, 2.0, {
-//					transition: Transitions.EASE_IN_OUT,
-//					delay: 0.1, // -> tween.delay = 20
-//					x: touch.globalX, // -> tween.animate("x", 50)
-//					y: touch.globalY
-//				})
 				this.characterView.moveTo(touch.globalX - offsetX, touch.globalY - offsetY);
 			}
 		}

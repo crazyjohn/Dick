@@ -2,7 +2,7 @@ package
 {
 	import com.dick.game.msg.Login;
 	import com.dick.game.msg.MessageType;
-	import com.dick.game.service.TCPService;
+	import com.dick.game.net.session.IoSession;
 	import com.dick.game.util.Style;
 	import com.dick.net.msg.response.GCLoginMessageResonse;
 	
@@ -36,7 +36,7 @@ package
 			stage.align = StageAlign.TOP_LEFT;
 			stage.scaleMode = StageScaleMode.NO_SCALE;
 			// tcpService
-			var session:TCPService = new TCPService();
+			var session:IoSession = new IoSession();
 			// 203.195.218.172
 			session.connect("127.0.0.1", 8081, sendLogin);
 			// register handler
@@ -47,7 +47,7 @@ package
 				login.puid = "crazyjohn";
 				var msgBody:ByteArray = new ByteArray();
 				login.writeTo(msgBody);
-				TCPService.sendPackage(MessageType.CG_PLAYER_LOGIN, msgBody);
+				IoSession.sendPackage(MessageType.CG_PLAYER_LOGIN, msgBody);
 			}
 			
 		}

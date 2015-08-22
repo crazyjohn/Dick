@@ -7,6 +7,11 @@ package com.dick.game.view.unit
 	import starling.display.MovieClip;
 	import starling.display.Sprite;
 	
+	/**
+	 * The monster sprite;
+	 * 
+	 * @autor crazyjohn;
+	 */
 	public class MonsterSprite extends Sprite
 	{
 		private var idleAnim:MovieClip = new MovieClip(EmbedAssets.getMonsterTextureAtlas().getTextures("daiji"), 18);

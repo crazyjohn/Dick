@@ -4,7 +4,7 @@ package com.dick.game.view.unit
 	import com.dick.game.msg.Human;
 	import com.dick.game.msg.MessageType;
 	import com.dick.game.resource.EmbedAssets;
-	import com.dick.game.service.TCPService;
+	import com.dick.game.net.session.IoSession;
 	
 	import flash.events.TimerEvent;
 	import flash.utils.Timer;
@@ -17,6 +17,11 @@ package com.dick.game.view.unit
 	import starling.display.Sprite;
 	import starling.events.Event;
 	
+	/**
+	 * The human sprite;
+	 * 
+	 * @author crazyjohn;
+	 */
 	public class HumanSprite extends Sprite
 	{
 		private var idleAnim:MovieClip = new MovieClip(EmbedAssets.getHumanTextureAtlas(HumanActionType.IDLE).getTextures("daiji"), 18);
@@ -34,7 +39,7 @@ package com.dick.game.view.unit
 		
 		protected function onSynced(event:TimerEvent):void
 		{
-			TCPService.sendCommand(MessageType.CG_SYNC);
+			IoSession.sendCommand(MessageType.CG_SYNC);
 		}
 		
 		public function idle():void {
@@ -64,8 +69,6 @@ package com.dick.game.view.unit
 		
 		private function onSkilCompleted(event:Event):void
 		{
-			// TODO Auto Generated method stub
-			trace("Skill completed");
 			if (event.target == this.useSkillAnim) {
 				idle();
 			}
@@ -74,13 +77,7 @@ package com.dick.game.view.unit
 		private var faceToFront:Boolean = true;
 		public function moveTo(toX:int, toY:int):void
 		{
-//			if (this.x < toX && !this.faceToFront) {
-//				this.idleAnim.scaleX = 1;
-//				this.faceToFront = true;
-//			} else if (this.x > toX && this.faceToFront) {
-//				this.idleAnim.scaleX = -1;
-//				this.faceToFront = false;
-//			}
+
 			var xCostTime:int = Math.abs(this.x - toX) / speed;
 			var yCostTime:int = Math.abs(this.y - toY) / speed;
 			var costTime:int = Math.max(xCostTime, yCostTime);

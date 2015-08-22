@@ -10,7 +10,7 @@ package com.dick.game.handler
 	import com.dick.game.msg.Role;
 	import com.dick.game.msg.SelectRole;
 	import com.dick.game.msg.Sync;
-	import com.dick.game.service.TCPService;
+	import com.dick.game.net.session.IoSession;
 	
 	import flash.utils.ByteArray;
 
@@ -24,7 +24,7 @@ package com.dick.game.handler
 			log.debug("Login result: " + succeed);
 			// get role list
 			if (succeed) {
-				TCPService.sendCommand(MessageType.CG_GET_ROLE_LIST);
+				IoSession.sendCommand(MessageType.CG_GET_ROLE_LIST);
 			}
 		}
 		
@@ -40,7 +40,7 @@ package com.dick.game.handler
 				var createData:ByteArray = new ByteArray();
 				createRole.writeTo(createData);
 				log.debug("Create role: " + createRole.name);
-				TCPService.sendPackage(MessageType.CG_CREATE_ROLE, createData);
+				IoSession.sendPackage(MessageType.CG_CREATE_ROLE, createData);
 			} else {
 				// select role
 				var role:Role = roleList[0];
@@ -49,7 +49,7 @@ package com.dick.game.handler
 				var selectData:ByteArray = new ByteArray();
 				selectRole.writeTo(selectData);
 				log.debug("Select role: " + role.roleId);
-				TCPService.sendPackage(MessageType.CG_SELECT_ROLE, selectData);
+				IoSession.sendPackage(MessageType.CG_SELECT_ROLE, selectData);
 			}
 		}
 		
@@ -57,7 +57,7 @@ package com.dick.game.handler
 		{
 			// enter scene
 			log.debug("Enter scene ready: " + human.name);
-			TCPService.sendCommand(MessageType.CG_ENTER_SCENE_READY);
+			IoSession.sendCommand(MessageType.CG_ENTER_SCENE_READY);
 			EventBus.fireEvent(GameEvent.GC_ENTER_SCENE_READY, [human]);
 		}
 		

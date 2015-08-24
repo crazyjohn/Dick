@@ -1,6 +1,5 @@
 package com.dick.game.view.unit
 {
-	import com.dick.game.msg.Human;
 	import com.dick.game.resource.EmbedAssets;
 	
 	import starling.core.Starling;

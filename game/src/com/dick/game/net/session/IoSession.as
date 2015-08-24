@@ -2,8 +2,8 @@ package com.dick.game.net.session
 {
 	import com.dick.framework.net.AbstractMessageReceiver;
 	import com.dick.framework.net.GameSocket;
-	import com.dick.game.msg.MessageType;
 	import com.dick.net.msg.response.GCLoginMessageResonse;
+	import com.dick.net.msg.response.GCSceneMessageResponse;
 	
 	import flash.events.Event;
 	import flash.events.IOErrorEvent;
@@ -145,6 +145,10 @@ package com.dick.game.net.session
 			_socket.register(MessageType.GC_SYNC, response.GC_SYNC);
 			
 			
+		}
+		
+		public function registerSceneMessageHandler(response:GCSceneMessageResponse):void {
+			_socket.register(MessageType.GC_SCENE_OBJECT_APPEAR, response.GC_SCENE_OBJECT_APPEAR);
 		}
 	}
 }

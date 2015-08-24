@@ -1,10 +1,6 @@
 package com.dick.game.view.unit
 {
 	import com.dick.game.constants.HumanActionType;
-	import com.dick.game.msg.Human;
-	import com.dick.game.msg.MessageType;
-	import com.dick.game.msg.Move;
-	import com.dick.game.msg.SceneObjectType;
 	import com.dick.game.net.session.IoSession;
 	import com.dick.game.resource.EmbedAssets;
 	
@@ -30,14 +26,18 @@ package com.dick.game.view.unit
 		private var idleAnim:MovieClip = new MovieClip(EmbedAssets.getHumanTextureAtlas(HumanActionType.IDLE).getTextures("daiji"), 18);
 		private var useSkillAnim:MovieClip = new MovieClip(EmbedAssets.getHumanTextureAtlas(HumanActionType.USE_SKILL).getTextures("18"), 15);
 		private var nameLbl:Label = new Label();
-		private var data:Human;
+		private var _data:Human;
 		private var timer:Timer = new Timer(1000 * 5);
 		public function HumanSprite(data:Human)
 		{
-			this.data = data;
+			this._data = data;
 			// start timer
 			timer.start();
 			timer.addEventListener(TimerEvent.TIMER, onSynced);
+		}
+		
+		public function get data():Human {
+			return this._data;
 		}
 		
 		protected function onSynced(event:TimerEvent):void
@@ -47,7 +47,7 @@ package com.dick.game.view.unit
 		
 		public function idle():void {
 			// nameLbl
-			nameLbl.text = data.name;
+			nameLbl.text = _data.name;
 			// remove use skill
 			Starling.juggler.remove(this.useSkillAnim);
 			this.removeChild(this.useSkillAnim);
@@ -92,7 +92,7 @@ package com.dick.game.view.unit
 			// send msg
 			var move:Move = new Move();
 			var moveData:ByteArray = new ByteArray();
-			move.id = this.data.guid;
+			move.id = this._data.guid;
 			move.objectType = SceneObjectType.HUMAN;
 			// FIXME: crazyjohn mock data
 			move.sceneId = 1;

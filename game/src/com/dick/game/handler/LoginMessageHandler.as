@@ -4,12 +4,6 @@ package com.dick.game.handler
 	import com.dick.framework.event.GameEvent;
 	import com.dick.framework.handler.IMessageHandler;
 	import com.dick.framework.log.Logger;
-	import com.dick.game.msg.CreateRole;
-	import com.dick.game.msg.Human;
-	import com.dick.game.msg.MessageType;
-	import com.dick.game.msg.Role;
-	import com.dick.game.msg.SelectRole;
-	import com.dick.game.msg.Sync;
 	import com.dick.game.net.session.IoSession;
 	
 	import flash.utils.ByteArray;
@@ -63,7 +57,7 @@ package com.dick.game.handler
 		
 		public static function GC_SYNC(sync:Sync):void
 		{
-			EventBus.fireEvent(GameEvent.GC_SYNC, [sync]);
+			
 		}
 	}
 }

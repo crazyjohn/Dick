@@ -1,10 +1,9 @@
 package
 {
-	import com.dick.game.msg.Login;
-	import com.dick.game.msg.MessageType;
 	import com.dick.game.net.session.IoSession;
 	import com.dick.game.util.Style;
 	import com.dick.net.msg.response.GCLoginMessageResonse;
+	import com.dick.net.msg.response.GCSceneMessageResponse;
 	
 	import flash.display.Sprite;
 	import flash.display.StageAlign;
@@ -39,8 +38,10 @@ package
 			var session:IoSession = new IoSession();
 			// 203.195.218.172
 			session.connect("127.0.0.1", 8081, sendLogin);
-			// register handler
+			// register login handler
 			session.registerLoginMessageHandler(new GCLoginMessageResonse());
+			// register scene handler
+			session.registerSceneMessageHandler(new GCSceneMessageResponse());
 			function sendLogin():void {
 				// send login
 				var login:Login = new Login();

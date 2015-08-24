@@ -2,10 +2,6 @@ package com.dick.net.msg.response
 {
 	import com.dick.framework.response.IMessageResponse;
 	import com.dick.game.handler.LoginMessageHandler;
-	import com.dick.game.msg.EnterScene;
-	import com.dick.game.msg.LoginResult;
-	import com.dick.game.msg.RoleList;
-	import com.dick.game.msg.Sync;
 	
 	import flash.utils.IDataInput;
 

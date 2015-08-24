@@ -1,6 +1,6 @@
 
 
-package com.dick.game.msg {
+package  {
 	import com.netease.protobuf.Int64;
 	import com.netease.protobuf.Message;
 	import com.netease.protobuf.ReadUtils;

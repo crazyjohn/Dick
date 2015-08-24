@@ -3,8 +3,6 @@ package
 	import com.dick.framework.event.EventBus;
 	import com.dick.framework.event.GameEvent;
 	import com.dick.game.data.GameHumanManager;
-	import com.dick.game.msg.Human;
-	import com.dick.game.msg.Sync;
 	import com.dick.game.resource.EmbedAssets;
 	import com.dick.game.view.unit.HumanSprite;
 	import com.dick.game.view.unit.MonsterSprite;
@@ -32,17 +30,15 @@ package
 			initBg();
 			// addEventListener
 			EventBus.addEventListener(GameEvent.GC_ENTER_SCENE_READY, onEnterSceneReady);
-			EventBus.addEventListener(GameEvent.GC_SYNC, onSync);
-			EventBus.addEventListener(GameEvent.GC_APPEAR_NEW_HUMAN, onNewHumanAppear);
+			EventBus.addEventListener(GameEvent.GC_SCENE_OBJECT_APPEAR, onNewSceneObjectAppear);
 			// touch
 			this.addEventListener(TouchEvent.TOUCH, onSceneTouched);
 		}
 		
 		
 		
-		private function onNewHumanAppear(params:Array):void
+		private function onNewHumanAppear(human:Human):void
 		{
-			var human:Human = params[0];
 			var humanView:MonsterSprite = new MonsterSprite(human);
 			this.addChild(humanView);
 			humanView.idle();
@@ -52,11 +48,18 @@ package
 			humanView.y = y;
 		}
 		
-		private function onSync(params:Array):void
+		private function onNewSceneObjectAppear(params:Array):void
 		{
-			// TODO Auto Generated method stub
-			var sync:Sync = params[0];
-			GameHumanManager.addAll(sync.humans);
+			
+			var appear:SceneObjectAppear = params[0];
+			// is myself
+			if (this.characterView.data.guid == appear.human.guid) {
+				return;
+			}
+			var isNew:Boolean = GameHumanManager.add(appear.human);
+			if (isNew) {
+				onNewHumanAppear(appear.human);
+			}
 		}
 		
 		private function onEnterSceneReady(params:Array):void

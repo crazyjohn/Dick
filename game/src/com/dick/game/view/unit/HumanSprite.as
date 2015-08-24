@@ -3,10 +3,13 @@ package com.dick.game.view.unit
 	import com.dick.game.constants.HumanActionType;
 	import com.dick.game.msg.Human;
 	import com.dick.game.msg.MessageType;
-	import com.dick.game.resource.EmbedAssets;
+	import com.dick.game.msg.Move;
+	import com.dick.game.msg.SceneObjectType;
 	import com.dick.game.net.session.IoSession;
+	import com.dick.game.resource.EmbedAssets;
 	
 	import flash.events.TimerEvent;
+	import flash.utils.ByteArray;
 	import flash.utils.Timer;
 	
 	import feathers.controls.Label;
@@ -77,7 +80,6 @@ package com.dick.game.view.unit
 		private var faceToFront:Boolean = true;
 		public function moveTo(toX:int, toY:int):void
 		{
-
 			var xCostTime:int = Math.abs(this.x - toX) / speed;
 			var yCostTime:int = Math.abs(this.y - toY) / speed;
 			var costTime:int = Math.max(xCostTime, yCostTime);
@@ -86,8 +88,18 @@ package com.dick.game.view.unit
 				delay: 0.1, // -> tween.delay = 20
 				x: toX, // -> tween.animate("x", 50)
 				y: toY
-			})
-			
+			});
+			// send msg
+			var move:Move = new Move();
+			var moveData:ByteArray = new ByteArray();
+			move.id = this.data.guid;
+			move.objectType = SceneObjectType.HUMAN;
+			// FIXME: crazyjohn mock data
+			move.sceneId = 1;
+			move.x = toX;
+			move.y = toY;
+			move.writeTo(moveData);
+			IoSession.sendPackage(MessageType.CG_REQUEST_MOVE, moveData);
 		}
 	}
 }

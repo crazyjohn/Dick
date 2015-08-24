@@ -1,5 +1,4 @@
 
-
 package com.dick.game.msg {
 	public final class MessageType {
 		public static const CG_PLAYER_LOGIN:int = 1001;
@@ -14,5 +13,7 @@ package com.dick.game.msg {
 		public static const CG_ENTER_SCENE_READY:int = 1010;
 		public static const CG_SYNC:int = 1011;
 		public static const GC_SYNC:int = 1012;
+		public static const CG_REQUEST_MOVE:int = 1013;
+		public static const GC_BROADCAST_MOVE:int = 1014;
 	}
 }

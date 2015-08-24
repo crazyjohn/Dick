@@ -42,7 +42,7 @@ package com.dick.game.view.unit
 		
 		protected function onSynced(event:TimerEvent):void
 		{
-			IoSession.sendCommand(MessageType.CG_SYNC);
+			// IoSession.sendCommand(MessageType.CG_SYNC);
 		}
 		
 		public function idle():void {

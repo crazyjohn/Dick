@@ -7,6 +7,8 @@ package
 	import com.dick.game.view.unit.HumanSprite;
 	import com.dick.game.view.unit.MonsterSprite;
 	
+	import flash.utils.Dictionary;
+	
 	import starling.display.Image;
 	import starling.display.Sprite;
 	import starling.events.Touch;
@@ -23,6 +25,7 @@ package
 		private var characterView:HumanSprite;
 		private var offsetX:int = 130;
 		private var offsetY:int = 160;
+		private var sceneHumans:Dictionary = new Dictionary();
 		
 		public function GameEnterScene()
 		{
@@ -31,21 +34,31 @@ package
 			// addEventListener
 			EventBus.addEventListener(GameEvent.GC_ENTER_SCENE_READY, onEnterSceneReady);
 			EventBus.addEventListener(GameEvent.GC_SCENE_OBJECT_APPEAR, onNewSceneObjectAppear);
+			EventBus.addEventListener(GameEvent.GC_BROADCAST_MOVE, onHumanMove);
 			// touch
 			this.addEventListener(TouchEvent.TOUCH, onSceneTouched);
 		}
 		
-		
-		
-		private function onNewHumanAppear(human:Human):void
+		private function onHumanMove(params:Array):void
 		{
-			var humanView:MonsterSprite = new MonsterSprite(human);
+			var move:Move = params[0];
+			var humanView:HumanSprite = sceneHumans[move.id.toNumber()];
+			if (humanView == null) {
+				return;
+			}
+			humanView.moveTo(move.x, move.y);
+		}		
+		
+		
+		private function onNewHumanAppear(appear:SceneObjectAppear):void
+		{
+			var human:Human = appear.human;
+			var humanView:HumanSprite = new HumanSprite(human);
 			this.addChild(humanView);
 			humanView.idle();
-			var x:int = Math.random() * 800 + this.characterView.x;
-			var y:int = Math.random() * 300 + this.characterView.y;
-			humanView.x = x;
-			humanView.y = y;
+			humanView.x = appear.pos.x;
+			humanView.y = appear.pos.y;
+			sceneHumans[human.guid.toNumber()] = humanView;
 		}
 		
 		private function onNewSceneObjectAppear(params:Array):void
@@ -58,7 +71,7 @@ package
 			}
 			var isNew:Boolean = GameHumanManager.add(appear.human);
 			if (isNew) {
-				onNewHumanAppear(appear.human);
+				onNewHumanAppear(appear);
 			}
 		}
 		
@@ -92,6 +105,7 @@ package
 				trace("Toched: x = " + touch.globalX + ", y = " + touch.globalY);
 				trace("Player: x = " + characterView.x + ", y = " + characterView.y);
 				this.characterView.moveTo(touch.globalX - offsetX, touch.globalY - offsetY);
+				this.characterView.sendMoveMessage(touch.globalX - offsetX, touch.globalY - offsetY);
 			}
 		}
 		

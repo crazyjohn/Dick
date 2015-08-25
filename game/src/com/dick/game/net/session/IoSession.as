@@ -149,6 +149,8 @@ package com.dick.game.net.session
 		
 		public function registerSceneMessageHandler(response:GCSceneMessageResponse):void {
 			_socket.register(MessageType.GC_SCENE_OBJECT_APPEAR, response.GC_SCENE_OBJECT_APPEAR);
+			// move
+			_socket.register(MessageType.GC_BROADCAST_MOVE, response.GC_BROADCAST_MOVE);
 		}
 	}
 }

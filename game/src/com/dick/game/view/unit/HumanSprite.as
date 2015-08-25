@@ -76,7 +76,7 @@ package com.dick.game.view.unit
 				idle();
 			}
 		}
-		private var speed:int = 100;
+		private var speed:int = 50;
 		private var faceToFront:Boolean = true;
 		public function moveTo(toX:int, toY:int):void
 		{
@@ -89,7 +89,11 @@ package com.dick.game.view.unit
 				x: toX, // -> tween.animate("x", 50)
 				y: toY
 			});
-			// send msg
+			
+		}
+		
+		public function sendMoveMessage(toX:int, toY:int):void
+		{
 			var move:Move = new Move();
 			var moveData:ByteArray = new ByteArray();
 			move.id = this._data.guid;

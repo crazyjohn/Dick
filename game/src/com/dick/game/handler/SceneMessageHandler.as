@@ -8,5 +8,10 @@ package com.dick.game.handler
 		public static function GC_SCENE_OBJECT_APPEAR(appear:SceneObjectAppear):void {
 			EventBus.fireEvent(GameEvent.GC_SCENE_OBJECT_APPEAR, [appear]);
 		}
+		
+		public static function GC_BROADCAST_MOVE(move:Move):void
+		{
+			EventBus.fireEvent(GameEvent.GC_BROADCAST_MOVE, [move]);
+		}
 	}
 }

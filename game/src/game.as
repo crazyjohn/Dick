@@ -37,7 +37,7 @@ package
 			// tcpService
 			var session:IoSession = new IoSession();
 			// 203.195.218.172
-			session.connect("127.0.0.1", 8081, sendLogin);
+			session.connect("127.0.0.1", 8001, sendLogin);
 			// register login handler
 			session.registerLoginMessageHandler(new GCLoginMessageResonse());
 			// register scene handler
